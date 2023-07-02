@@ -1,0 +1,306 @@
+﻿@page "/"
+@page "/home"
+<PageTitle>Killbus</PageTitle>
+
+@*<MudCarousel Class="mud-width-full" Style="height:1395px;" ShowArrows="@arrows"
+EnableSwipeGesture="@enableSwipeGesture" AutoCycle="@autocycle" TData="object" Size="@Size.Large">
+    <MudCarouselItem Transition="transition">
+
+            <div class="d-flex justify-center">
+                <MudImage  ObjectPosition="ObjectPosition.Center" Class="mx-auto my-auto"
+                      Src="https://f28-zpc.zdn.vn/7067817900617616949/88de548029caf994a0db.jpg" Size="@Size.Large" Style="height:1395px;" />
+            </div>
+
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition">
+
+            <div class="d-flex justify-center">
+                <MudImage ObjectPosition="ObjectPosition.Center" Class="mx-auto my-auto"
+                      Src="https://f21-zpc.zdn.vn/8873573450280256671/fcec46cd3b87ebd9b296.jpg" Size="@Size.Large" Style="height:1395px;" />
+            </div>
+
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition">
+
+            <div class="d-flex justify-center">
+                <MudImage  ObjectPosition="ObjectPosition.Center" Class="mx-auto my-auto"
+                      Src="https://f27-zpc.zdn.vn/140815191980089656/86c4679f1ad5ca8b93c4.jpg" Size="@Size.Large" Style="height:1395px;" />
+            </div>
+    </MudCarouselItem>
+</MudCarousel>*@
+<div style="background-color:#31313C;padding-top:55px;background-image:url(https://clan.cloudflare.steamstatic.com/images/32528477/8d5566a5ef8f42878c05dc645d6fc102653f976e.jpg)">
+<div class=" docs-section-content-inner relative d-flex flex-grow-1 flex-wrap justify-center align-center">
+        <MudContainer Style="height:751px;width:1194px;margin-top:20px;margin-left:310px">
+        <MudImage Style="object-fit: cover;height:751px;width:1194px"
+                      Src="https://f12-zpc.zdn.vn/7210492971373021126/6befc23bb563653d3c72.jpg" />
+</MudContainer>
+</div>
+    <div class=" docs-section-content-inner relative d-flex flex-grow-1 flex-wrap justify-center align-center" 
+    style="color:White;text-align:left;align-items:center;padding:0;margin-left:110px;margin-top:25px;margin-bottom:25px;margin-right:110px;background-color:#231c1c">
+            <label style="font-size:1.2cm;"><i><b>Nổi bật</b></i></label>
+           
+    </div>
+<MudCarousel Class="mud-width-full" Style="align-content:center;height:600px;" EnableSwipeGesture="@enableSwipeGesture"
+                 ShowBullets="false" AutoCycle="@autocycle" AutoCycleTime="@timeSpan" TData="object" Size="@Size.Large">
+    <MudCarouselItem Transition="transition">
+        <MudContainer Style="max-width: auto; height: auto;">
+           
+            <MudSpacer />
+            <div class="d-flex justify-center">
+                <MudImage Style="object-fit: cover;margin-left:20px" 
+                ObjectPosition="ObjectPosition.Center" Class="mx-auto my-auto"
+                              Src="https://f26-zpc.zdn.vn/4844161081800860776/3f435df249a299fcc0b3.jpg" />
+            </div>
+            <MudSpacer />
+        </MudContainer>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition">
+        <MudContainer Style="max-width: auto; height: auto;">
+ 
+            <MudSpacer />
+            <div class="d-flex justify-center">
+                <MudImage Style="object-fit: cover;margin-left:20px" 
+                ObjectPosition="ObjectPosition.Center" Class="mx-auto my-auto"
+                              Src="https://f5-zpc.zdn.vn/2442184614355350973/3c0ab7a4a3f473aa2ae5.jpg" />
+            </div>
+            <MudSpacer />
+        </MudContainer>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition">
+        <MudContainer Style="max-width: auto; height: auto;">
+          
+            <MudSpacer />
+            <div class="d-flex justify-center">
+                <MudImage Style="object-fit: cover;margin-left:20px" 
+                ObjectPosition="ObjectPosition.Center" Class="mx-auto my-auto"
+                              Src="https://f7-zpc.zdn.vn/1865486233506140797/f734489a5cca8c94d5db.jpg" />
+            </div>
+            <MudSpacer />
+        </MudContainer>
+    </MudCarouselItem>
+</MudCarousel>
+<br />
+    <div class=" docs-section-content-inner relative d-flex flex-grow-1 flex-wrap justify-center align-center" style="color:White;text-align:center">
+        <MudContainer Style="align-items:center;padding:auto;margin:50px;" Elevation="0">
+            <label style="font-size:2cm;"><i>You play, We care !!</i></label>
+            <br />
+            <h3>Killbus sẽ mang đến trải nghiệm chơi game và xem phim cực kì dễ dàng cho khách hàng</h3>
+        </MudContainer>
+    </div>
+<MudContainer Style="align-items:center;" Class="pa-8" Elevation="0">
+    <MudTable Style="background-color:#4F4F4F" Dense="true" T="Item" Items="@MyItem" SortLabel="Sort By">
+        <HeaderContent>
+                <MudTh Style="text-align:center;border-color:#31313C;color:#F8F8FF"><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<Item, object>(x=>x.Rank)">Rank</MudTableSortLabel></MudTh>
+            <MudTh Style="text-align:center;border-color:#31313C;color:#F8F8FF">Image</MudTh>
+            <MudTh Style="border-color:#31313C;color:#F8F8FF"><MudTableSortLabel SortBy="new Func<Item, object>(x=>x.Name)">Name</MudTableSortLabel></MudTh>
+            <MudTh Style="text-align:center;border-color:#31313C;color:#F8F8FF">Tier</MudTh>
+            <MudTh Style="text-align:center;border-color:#31313C;color:#F8F8FF">Release Date</MudTh>
+            <MudTh Style="text-align:center;border-color:#31313C;color:#F8F8FF"><MudTableSortLabel SortBy="new Func<Item, object>(x=>x.Price)">Price</MudTableSortLabel></MudTh>
+            <MudTh Style="text-align:center;border-color:#31313C;color:#F8F8FF">Rating</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd Style="border-color:#31313C;color:#FFF">
+                <MudText Style="text-align:center" Typo="Typo.body1">@context.Rank</MudText>
+            </MudTd>
+            <MudTd Style="border-color:#31313C">
+                <div style="display:flex; justify-content:center;">
+                    <img src="@context.ImageLink" srcset="@context.ImageLink 1x, @context.ImageLink 2x">
+                </div>
+            </MudTd>
+            <MudTd Style="border-color:#31313C;color:#F8F8FF">
+                <MudText Typo="Typo.body1">@context.Name</MudText>
+            </MudTd>
+
+            <MudTd Style="border-color:#31313C">
+                <div style="display:flex; justify-content:center;">
+                    <MudImage Fluid="true" Src="@context.Tier" />
+                </div>
+            </MudTd>
+            <MudTd Style="border-color:#31313C;color:#FFF">
+                <MudText Typo="Typo.body1">@context.Date</MudText>
+            </MudTd>
+            <MudTd Style="border-color:#31313C;color:#FFF">
+                <MudText Typo="Typo.body1">@context.Price</MudText>
+            </MudTd>
+            <MudTd Style="border-color:#31313C">
+                <div style="display:flex; justify-content:center;">
+                    <MudRating Max="5" SelectedValue="@context.Rating"
+                               ValueChanged="HandleRatingChange" @key="@context" />
+                </div>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudContainer>
+    <div class=" docs-section-content-inner relative d-flex flex-grow-1 flex-wrap justify-center align-center">
+        <MudContainer Style="align-items:center;padding:auto;margin:50px;" Elevation="0">
+
+            <h1 style="color:white">Các đối tác chính của chúng tôi</h1>
+            <MudImage Style="object-fit: cover;width:220px;height:220px;"
+                      Src="https://res.cloudinary.com/teepublic/image/private/s---NvWWo_t--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:35/co_000000,e_outline:inner_fill:35/co_ffffff,e_outline:35/co_ffffff,e_outline:inner_fill:35/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_90,w_630/v1598468773/production/designs/13434591_0.jpg" />
+            &nbsp;&nbsp;&nbsp;&nbsp
+            <MudImage Style="object-fit: cover;width:220px;height:220px;"
+                      Src="https://b-f8-zpc.zdn.vn/7653589152657222070/2ec1cd716824b87ae135.jpg" />
+            &nbsp;&nbsp;&nbsp;&nbsp
+            <MudImage Style="object-fit: cover;width:220px;height:220px;"
+                      Src="https://f12-zpc.zdn.vn/1180116190786480802/da46c73aad6f7d31247e.jpg" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <MudImage Style="object-fit: cover;width:220px;height:220px;"
+                      Src="https://f21-zpc.zdn.vn/8278560963863203976/7b6c3dbd57e887b6def9.jpg" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <MudImage Style="object-fit: cover;width:220px;height:220px;"
+                      Src="https://f22-zpc.zdn.vn/2318424953693298043/49321b607035a06bf924.jpg" />
+
+
+        </MudContainer>
+    </div>
+</div>
+
+@code {
+
+    private bool enableSwipeGesture = true;
+    private bool autocycle = true;
+    TimeSpan timeSpan = new TimeSpan(0, 0, 3);
+    private Transition transition = Transition.Fade;
+    
+    private List<Item> MyItem;
+    protected override void OnInitialized()
+    {
+        MyItem = new List<Item>
+        {
+            new Item { Name = "Elden Ring", Rank = 1, Rating = 5, ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/capsule_sm_120.jpg?t=1683618443", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-op.svg",  Date = "25/02/2022", Price = "898.000đ"},
+
+            new Item { Name = "Sekiro™: Shadows Die Twice - GOTY Edition",Rank = 2, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/814380/capsule_sm_120.jpg?t=1678991267", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-1.svg", Date = "22/03/2019", Price = "1.290.000đ" },
+
+            new Item { Name = "Cyberpunk 2077",Rank = 3, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/capsule_sm_120.jpg?t=1680026109", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-1.svg", Date = "10/12/2020", Price = "990.000đ" },
+
+            new Item { Name = "God of War",Rank = 4, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/capsule_sm_120.jpg?t=1650554420", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-1.svg", Date = "14/01/2022", Price = "1.139.000đ" },
+
+            new Item { Name = "Call of Duty®: Modern Warfare® II",Rank = 5, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1938090/capsule_sm_120_alt_assets_3.jpg?t=1684446457", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-1.svg", Date = "28/10/2022", Price = "1.799.000đ" },
+
+            new Item { Name = "Red Dead Redemption 2",Rank = 6, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/capsule_sm_120.jpg?t=1671485009", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-1.svg", Date = "06/12/2019", Price = "1.000.000đ" },
+
+            new Item { Name = "MONSTER HUNTER RISE",Rank = 7, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1446780/capsule_sm_120.jpg?t=1683018438", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-2.svg", Date = "13/01/2022", Price = "881.000đ" },
+
+            new Item { Name = "Dying Light 2 Stay Human",Rank = 8, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/534380/capsule_sm_120.jpg?t=1684512223", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-2.svg", Date = "04/02/2022", Price = "990.000đ" },
+
+            new Item { Name = "Mortal Kombat",Rank = 9, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/976310/capsule_sm_120.jpg?t=1684790351", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-2.svg", Date = "23/04/2019", Price = "59.000đ" },
+
+            new Item { Name = "Grand Theft Auto V",Rank = 10, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/capsule_sm_120.jpg?t=1678296348", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-2.svg", Date = "14/04/2015", Price = "456.000đ" },
+
+            new Item { Name = "The Outlast Trials",Rank = 11, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1304930/capsule_sm_120.jpg?t=1684452998", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-2.svg", Date = "19/05/2023", Price = "385.000đ" },
+
+            new Item { Name = "NARAKA: BLADEPOINT",Rank = 12, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1203220/capsule_sm_120.jpg?t=1683170532", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-2.svg", Date = "12/08/2021", Price = "360.000đ" },
+
+            new Item { Name = "Forza Horizon 5",Rank = 13, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/capsule_sm_120.jpg?t=1683059745", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-2.svg", Date = "09/11/2021", Price = "990.000đ" },
+
+            new Item { Name = "Dead by Daylight",Rank = 14, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/381210/capsule_sm_120.jpg?t=1683120711", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-2.svg", Date = "15/06/2016", Price = "230.000đ" },
+
+            new Item { Name = "Total War: WARHAMMER III",Rank = 15, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1142710/capsule_sm_120.jpg?t=1685031053", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-2.svg", Date = "17/02/2022", Price = "711.000đ" },
+
+            new Item { Name = "EA SPORTS™ FIFA 23",Rank = 16, Rating = 3 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1811260/capsule_sm_120.jpg?t=1682117049", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-2.svg", Date = "29/09/2022", Price = "327.000đ" },
+
+            new Item { Name = "Ready or Not",Rank = 17, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1144200/capsule_sm_120.jpg?t=1683229008", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-2.svg", Date = "18/12/2021", Price = "248.000đ" },
+
+            new Item { Name = "Tom Clancy's Rainbow Six® Siege",Rank = 18, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_sm_120.jpg?t=1683930161", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "02/12/2015", Price = "330.000đ" },
+
+            new Item { Name = "RimWorld",Rank = 19, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/294100/capsule_sm_120.jpg?t=1676391313", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "17/10/2018", Price = "350.000đ" },
+
+            new Item { Name = "Raft",Rank = 20, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/648800/capsule_sm_120.jpg?t=1655744208", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "20/06/2022", Price = "188.000đ" },
+
+            new Item { Name = "Rust",Rank = 21, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/252490/capsule_sm_120.jpg?t=1678981332", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "09/02/2018", Price = "510.000đ" },
+
+            new Item { Name = "Cities: Skylines",Rank = 22, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/255710/capsule_sm_120.jpg?t=1683626322", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "10/03/2015", Price = "325.000đ" },
+
+            new Item { Name = "Sid Meier’s Civilization® VI",Rank = 23, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/289070/capsule_sm_120.jpg?t=1680898825", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "21/10/2016", Price = "100.000đ" },
+
+            new Item { Name = "NBA 2K23",Rank = 24, Rating = 3 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1919590/capsule_sm_120.jpg?t=1677540477", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "08/08/2022", Price = "160.000đ" },
+
+            new Item { Name = "Stray",Rank = 25, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1332010/capsule_sm_120.jpg?t=1679593738", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "08/09/2022", Price = "319.000đ" },
+
+            new Item { Name = "V Rising",Rank = 26, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1604030/capsule_sm_120_alt_assets_2.jpg?t=1684394834", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "17/05/2022", Price = "188.000đ" },
+
+            new Item { Name = "Warhammer 40,000: Boltgun",Rank = 27, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/2005010/capsule_sm_120.jpg?t=1685030541", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "23/05/2023", Price = "261.000đ" },
+
+            new Item { Name = "It Takes Two",Rank = 28, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1426210/capsule_sm_120.jpg?t=1679951279", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "26/03/2021", Price = "395.000đ" },
+
+            new Item { Name = "Sons Of The Forest",Rank = 29, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1326470/capsule_sm_120.jpg?t=1679677298", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "24/02/2023", Price = "385.000đ" },
+
+            new Item { Name = "Hunt: Showdown",Rank = 30, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/594650/capsule_sm_120.jpg?t=1683616324", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "27/08/2019", Price = "199.000đ" },
+
+            new Item { Name = "Sea of Thieves 2023 Edition",Rank = 31, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1172620/capsule_sm_120.jpg?t=1682374543", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "03/06/2020", Price = "400.000đ" },
+
+            new Item { Name = "Black Desert",Rank = 32, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/582660/capsule_sm_120.jpg?t=1681332065", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "18/09/2019", Price = "80.000đ" },
+
+            new Item { Name = "LEGO® Star Wars™: The Skywalker Saga",Rank = 33, Rating = 3 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/920210/capsule_sm_120.jpg?t=1676414649", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-3.svg", Date = "06/04/2022", Price = "822.000đ" },
+
+            new Item { Name = "Stellaris",Rank = 34, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/281990/capsule_sm_120.jpg?t=1684936288", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-4.svg", Date = "09/05/2016", Price = "400.000đ" },
+
+            new Item { Name = "Marvel’s Spider-Man Remastered",Rank = 35, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1817070/capsule_sm_120.jpg?t=1673999865", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-4.svg", Date = "12/08/2022", Price = "1.1339.000đ" },
+
+            new Item { Name = "Phasmophobia",Rank = 36, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/739630/capsule_sm_120.jpg?t=1683281716", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-4.svg", Date = "19/09/2020", Price = "160.000đ" },
+
+            new Item { Name = "The Elder Scrolls® Online",Rank = 37, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/306130/capsule_sm_120.jpg?t=1684958334", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-4.svg", Date = "23/05/2017", Price = "450.000đ" },
+
+            new Item { Name = "Age of Empires IV: Anniversary Edition",Rank = 38, Rating = 3 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1466860/capsule_sm_120.jpg?t=1675198657", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-4.svg", Date = "28/10/2021", Price = "480.000đ" },
+
+            new Item { Name = "Fallout 76",Rank = 39, Rating = 3 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1151340/capsule_sm_120.jpg?t=1677608851", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-4.svg", Date = "15/04/2020", Price = "749.000đ" },
+
+            new Item { Name = "theHunter: Call of the Wild™",Rank = 40, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/518790/capsule_sm_120.jpg?t=1684848640", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-4.svg", Date = "16/02/2017", Price = "188.000đ" },
+
+            new Item { Name = "Tiny Tina's Wonderlands",Rank = 41, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1286680/capsule_sm_120.jpg?t=1682006912", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "24/06/2022", Price = "500.000đ" },
+
+            new Item { Name = "DayZ",Rank = 42, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/221100/capsule_sm_120.jpg?t=1674143992", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "14/12/2018", Price = "1000.000đ" },
+
+            new Item { Name = "Battlefield™ 2042",Rank = 43, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1517290/capsule_sm_120.jpg?t=1682430413", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "19/11/2021", Price = "247.000đ" },
+
+            new Item { Name = "Crusader Kings III",Rank = 44, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1158310/capsule_sm_120.jpg?t=1683820745", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "01/09/2020", Price = "500.000đ" },
+
+            new Item { Name = "Horizon Zero Dawn™ Complete Edition",Rank = 45, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1151640/capsule_sm_120.jpg?t=1667297464", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "07/08/2020", Price = "376.000đ" },
+
+            new Item { Name = "Mount & Blade II: Bannerlord",Rank = 46, Rating = 3 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/261550/capsule_sm_120.jpg?t=1671213711", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "25/10/2022", Price = "800.000đ" },
+
+            new Item { Name = "Squad",Rank = 47, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/393380/capsule_sm_120.jpg?t=1685034323", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "14/09/2020", Price = "292.000đ" },
+
+            new Item { Name = "Valheim",Rank = 48, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/892970/capsule_sm_120.jpg?t=1676365340", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "02/02/2021", Price = "188.000đ" },
+
+            new Item { Name = "ARK: Survival Evolved",Rank = 49, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/346110/capsule_sm_120.jpg?t=1669254188", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "28/08/2017", Price = "188.000đ" },
+
+            new Item { Name = "The Witcher® 3: Wild Hunt",Rank = 50, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/capsule_sm_120.jpg?t=1675178392", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "18/05/2015", Price = "390.000đ" },
+
+            new Item { Name = "Borderlands 3",Rank = 51, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/397540/capsule_sm_120.jpg?t=1679590953", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "13/03/2020", Price = "148.000đ" },
+
+            new Item { Name = "Satisfactory",Rank = 52, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/526870/capsule_sm_120.jpg?t=1670335305", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "09/06/2020", Price = "385.000đ" },
+
+            new Item { Name = "The Elder Scrolls® Online",Rank = 53, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/306130/capsule_sm_120.jpg?t=1684958334", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "23/05/2017", Price = "450.000đ" },
+
+            new Item { Name = "FINAL FANTASY VII REMAKE INTERGRADE",Rank = 54, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1462040/capsule_sm_120.jpg?t=1663767129", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "17/06/2022", Price = "1.799.000đ" },
+
+            new Item { Name = "Microsoft Flight Simulator 40th Anniversary Edition",Rank = 55, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1250410/capsule_sm_120.jpg?t=1684358215", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "18/08/2020", Price = "1.3340.000đ" },
+
+            new Item { Name = "New World",Rank = 56, Rating = 3 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/1063730/capsule_sm_120.jpg?t=1683846413", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "28/09/2021", Price = "235.000đ" },
+
+            new Item { Name = "No Man's Sky",Rank = 57, Rating = 5 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/275850/capsule_sm_120_alt_assets_17.jpg?t=1683104899", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "12/08/2016", Price = "705.000đ" },
+
+            new Item { Name = "Stardew Valley",Rank = 58, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/962130/capsule_sm_120.jpg?t=1684963474", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "27/09/2022", Price = "649.000đ" },
+
+            new Item { Name = "Call of Duty®: Black Ops IIIy",Rank = 59, Rating = 4 , ImageLink = "https://cdn.cloudflare.steamstatic.com/steam/apps/311210/capsule_sm_120.jpg?t=1646763462", Tier = "https://s-lol-web.op.gg/images/icon/icon-tier-5.svg", Date = "06/11/2015", Price = "1.363.000đ" },
+
+        };
+    }
+
+    public class Item
+    {
+        public string Name { get; set; }
+        public int Rank { get; set; }
+        public int Rating { get; set; }
+        public string ImageLink { get; set; }
+        public string Date { get; set; }
+        public string Price { get; set; }
+        public string Tier { get; set; }
+    }
+
+    private void HandleRatingChange(int newRating, Item item)
+    {
+        item.Rating = newRating;
+    }
+}

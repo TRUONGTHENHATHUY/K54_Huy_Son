@@ -1,0 +1,28 @@
+﻿@*<div class="mb-3 row" style="align-content:end">*@
+    <div class="docs-section-content-inner relative d-flex flex-grow-1 flex-wrap justify-center align-center" style="position:fixed ; right: 70px; z-index: 999; color:black;">
+    <MudContainer Style="width:400px;height:100px;text-align:right">
+        
+    <div class="col-auto">
+        <MudTextField Style="border:solid" @bind-Value="filter"  Placeholder="Tìm kiếm" TextChanged="@HandleSearch"
+                          Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+        @*<input type="text" class="form-control" id="filter" @bind-value="filter" />*@
+    </div>
+
+    @*<br/>
+    <div class="col-auto">
+        <button type="button" class="btn btn-primary mb-2" @onclick="HandleSearch">Search</button>
+    </div >*@
+    </MudContainer>
+</div>
+
+@code {
+    private string filter;
+
+    [Parameter]
+    public EventCallback<string> OnSearch{ get; set; }
+
+    private void HandleSearch()
+    {
+        OnSearch.InvokeAsync(filter);
+    }
+}

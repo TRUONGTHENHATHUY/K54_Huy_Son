@@ -1,0 +1,23 @@
+﻿@page "/processedorders"
+
+@attribute [Authorize]
+
+@inject IViewProcessedOrderUseCase viewProcessedOrderUseCas
+
+
+
+
+<div style="background-color:#31313C;padding-top:0;background-image:url(https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg)">
+    <MudContainer Style="height:738px;width:1200px">
+        <br />
+        <OrderListComponent Orders="orders"></OrderListComponent>
+    </MudContainer>
+</div>
+@code {
+    private IEnumerable<Order> orders;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        orders = viewProcessedOrderUseCas.Execute();
+    }
+}

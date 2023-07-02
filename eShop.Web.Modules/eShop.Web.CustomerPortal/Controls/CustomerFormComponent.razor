@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+
+@if(customer != null)
+{
+    <EditForm Model="customer" class="form-line" OnValidSubmit="HandleValidSubmit">
+        <div class="form-group">
+            <lable for="name" style="color:white">Tên khách hàng</lable>
+            <InputText id="name" @bind-Value="customer.CustomerName" class="form-control" style="color:white;background-color:#31313C"></InputText>
+        </div>
+        <br/>
+        <div class="form-group">
+            <lable for="accountname" style="color:white">Tên tài khoản trò chơi</lable>
+            <InputText id="accountname" @bind-Value="customer.AccountGameName" class="form-control" style="color:white;background-color:#31313C"></InputText>
+        </div>
+        <br />
+        <div class="form-group">
+            <lable for="accountid" style="color:white">Mã tài khoản trò chơi</lable>
+            <InputText id="accountid" @bind-Value="customer.AccountGameId" class="form-control" style="color:white;background-color:#31313C"></InputText>
+        </div>
+        <br />
+        <div class="form-group">
+            <lable for="phone" style="color:white">Số điện thoại</lable>
+            <InputText id="phone" @bind-Value="customer.Phone" class="form-control" style="color:white;background-color:#31313C"></InputText>
+        </div>
+        <br />
+        @*<button type="submit" class="btn btn-primary">Place Order</button>*@
+        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Style="background-color:green;color:white;text-align:center;right:-80px;width:400px;height:50px">Mua hàng</MudButton>
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <ValidationSummary></ValidationSummary>
+    </EditForm>
+}
+
+@code {
+    private CustomerViewModel customer;
+
+    [Parameter]
+    public EventCallback<CustomerViewModel> OnCustomerInfoSubmitted{ get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        customer = new CustomerViewModel();
+    }
+
+    private void HandleValidSubmit()
+    {
+        OnCustomerInfoSubmitted.InvokeAsync(customer);
+    }
+}

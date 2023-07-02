@@ -1,0 +1,21 @@
+﻿@page "/outstandingorders"
+@page "/admin"
+
+@attribute [Authorize]
+
+@inject IViewOutstandingOrdersUseCase viewOutstandingOrdersUseCase
+
+<div style="background-color:#31313C;padding-top:0;background-image:url(https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg)">
+    <MudContainer Style="height:738px;width:1200px">
+    <OrderListComponent Orders="orders"></OrderListComponent>
+</MudContainer>
+</div>
+
+@code {
+    private IEnumerable<Order> orders;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        orders = viewOutstandingOrdersUseCase.Execute();
+    }
+}

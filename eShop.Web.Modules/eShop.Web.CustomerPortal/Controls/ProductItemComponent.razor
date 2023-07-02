@@ -1,0 +1,22 @@
+﻿@using System.Globalization;
+@if(this.Product != null)
+{
+    <tr>
+        <td>
+            <NavLink href="@($"product/{Product.ProductId}")">
+                @Product.Name
+            </NavLink>
+            
+        </td>
+        
+        <td>@Product.Price.ToString("c",culture)</td>
+    </tr>
+}
+
+
+
+@code {
+    [Parameter]
+    public Product Product{ get; set; }
+    CultureInfo culture = new CultureInfo("vi-VN");
+}

@@ -1,0 +1,29 @@
+﻿@page "/productrequire"
+@attribute [Authorize]
+@inject NavigationManager navigationManager
+
+<div style="background-color:#31313C;padding-top:0;background-image:url(https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg)">
+    <MudContainer Style="height:738px;width:1200px;">
+        <br />
+        <h3 style="color:white;text-align:center">Quản lý sản phẩm</h3>
+        <br />
+        <div style="text-align:center">
+            <MudButton Variant="Variant.Filled" Style="background-color:green;color:white;
+        text-align:center;right:30px;width:200px;height:50px"  Href="insertproduct">Thêm sản phẩm</MudButton>
+
+            <MudButton Variant="Variant.Filled" Style="background-color:green;color:white;
+        text-align:center;right:0px;width:200px;height:50px" Href="updateproduct">Sửa sản phẩm</MudButton>
+
+            <MudButton Variant="Variant.Filled" Style="background-color:green;color:white;
+        text-align:center;right:-30px;width:200px;height:50px" Href="deleteproduct">Xóa sản phẩm</MudButton>
+            <br />
+            <br />
+        </div>
+        
+    </MudContainer>
+</div>
+
+
+@code {
+
+}

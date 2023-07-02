@@ -1,0 +1,53 @@
+﻿@page "/deleteproduct"
+@attribute [Authorize]
+@inject NavigationManager navigationManager
+
+<div style="background-color:#31313C;padding-top:0;background-image:url(https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg)">
+    <MudContainer Style="height:738px;width:1200px;">
+        <br />
+        <h3 style="color:white;text-align:center">Quản lý sản phẩm</h3>
+        <br />
+        <MudFab Href="productrequire" Color="Color.Tertiary" StartIcon="@Icons.Material.Filled.ArrowBack" DisableElevation="true" Label="Trở về" />
+        <br />
+            <h4 style="color:white;text-align:center">Xóa sản phẩm</h4>
+            @if (product != null)
+            {
+                <div class="row">
+                    <div class="col" style="color:white">
+                        <EditForm Model="product.ProductId" OnValidSubmit="DeleteHandleValidSubmit" class="form-line">
+                            <div class="form-group">
+                                <label for="id">Id</label>
+                                <InputNumber id="id" @bind-Value="product.ProductId" class="form-control" style="color:white;background-color:#31313C"></InputNumber>
+                            </div>
+                            <br />
+                            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Style="background-color:green;color:white;
+                            text-align:center;right:-30px;width:200px;height:50px">Thực hiện</MudButton>
+
+                            <DataAnnotationsValidator></DataAnnotationsValidator>
+                            <ValidationSummary></ValidationSummary>
+                        </EditForm>
+                    </div>
+                </div>
+            }
+        }
+    </MudContainer>
+</div>
+
+
+@code {
+    private ProductRequire product;
+    private int changenum = 1;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        product = new ProductRequire();
+    }
+    
+    private void DeleteHandleValidSubmit()
+    {
+        navigationManager.NavigateTo($"/productdelete?Productid={product.ProductId}"
+        , true);
+    }
+
+}

@@ -1,0 +1,107 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>eShop.Web</PageTitle>
+<BaseMudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <div class="docs-section-content-inner relative d-flex flex-grow-1 flex-wrap justify-center align-center"
+         style="position: fixed; left: 0; right: 0;top:0px; z-index: 999; color:#fff;">
+        <MudAppBar Style="background-color:#31313C;height:72px;padding-top:3px" Fixed="false" Elevation="0">
+            <div class="d-flex justify-left">
+                <MudImage Fluid="true" Src="https://f28-zpc.zdn.vn/3795876586908746825/485aa729ed7c3d22646d.jpg"
+                          Width="70" Height="70" Alt="Error" Class="rounded-lg" />
+            </div>
+            &nbsp;&nbsp;&nbsp;<h1>Killbus</h1>
+            <MudSpacer />
+            <MudButtonGroup Color="Color.Secondary" Variant="Variant.Text">
+                <MudButton Href="home">Trang chủ</MudButton>
+                &nbsp;&nbsp;
+                <MudButton Href="products">Cửa hàng</MudButton>
+                &nbsp;&nbsp;
+            </MudButtonGroup>
+            <div>
+                <MudFab Href="cart" Color="Color.Tertiary" StartIcon="@Icons.Material.Filled.ShoppingCart" DisableElevation="true" Label="Giỏ hàng" />
+
+            </div>
+
+            <AuthorizeView>
+                <Authorized>
+                    <MudButton Href="outstandingorders">Đơn hàng đang chờ</MudButton>
+                    &nbsp;&nbsp;
+                    <MudButton Href="processedorders">Đơn hàng đã hoàn thành</MudButton>
+                    &nbsp;&nbsp;
+                    <MudButton Href="productrequire">Quản lý sản phẩm</MudButton>
+                    &nbsp;&nbsp;
+                    <MudButton Href="logout">Đăng xuất</MudButton>
+                </Authorized>
+                <NotAuthorized>
+                    <MudButton Href="admin">Quản lý</MudButton>
+                </NotAuthorized>
+            </AuthorizeView>
+        </MudAppBar>
+    </div>
+    <br />
+
+    <div style="padding-top:53px;">
+        @*<MudContainer MaxWidth="MaxWidth.Large" style="background-color:#31313C;padding-top:55px;
+        background-image:url(https://b-f8-zpc.zdn.vn/4421972205139482469/9bac4af060a5b0fbe9b4.jpg)">*@
+        @Body
+        @*</MudContainer>*@
+    </div>
+    <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
+    <footer id="footer-main" class="position-relative" style="background-color: #202846">
+        <br />
+        <div class="container">
+            <div class="row wrapper-footer-main">
+                <div class="col-12 col-lg-3 item-col-footer">
+                    <MudImage Fluid="true" Src="https://f28-zpc.zdn.vn/3795876586908746825/485aa729ed7c3d22646d.jpg"
+                              Width="120" Height="120" Alt="Error" Class="rounded-lg" />
+                </div>
+                <div class="col-12 col-lg-3 item-col-footer">
+                    <div class="wrapper-col-footer">
+                        <div class="subTitle-footer"></div>
+                    </div>
+                    <br />
+                    <div class="content-footer" style="color:#fff;">
+                        <a href="home">Trang chủ</a>
+                    </div>
+                    <br />
+                    <div class="content-footer" style="color:#fff;">
+                        <a href="products">Cửa hàng</a>
+                    </div>
+                    <br />
+                    <div class="content-footer" style="color:#fff;">
+                        <a href="cart">Giỏ hàng</a>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3 item-col-footer">
+                </div>
+                <div class="col-12 col-lg-3 item-col-footer">
+                    <div class="wrapper-col-footer">
+                        <div class="wrapper-col-footer">
+                            <div class="subTitle-footer"></div>
+                        </div>
+                        <div class="title-footer" style="color:#BE984E;">
+                            <h4>Killbus</h4>
+                        </div>
+                        <div class="content-footer" style="color:#fff;">
+                            25 Tống Duy Tân, Thành phố Huế, Thừa Thiên Huế
+                        </div>
+                        <div class="content-footer" style="color:#fff;">
+                            0977004444
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+    </footer>
+
+</MudLayout>
+
+@code {
+
+
+}

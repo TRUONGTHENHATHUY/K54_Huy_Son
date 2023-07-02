@@ -1,0 +1,74 @@
+﻿@page "/orderconfirm/{uniqueId}"
+@using System.Globalization;
+
+@inject IViewOrderConfirmationUseCase viewOrderConfirmationUseCase
+<div style="background-color:#31313C;padding-top:0;background-image:url(https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg)">
+    <MudContainer Style="height:738px;width:1200px">
+        <br />
+        <h3 style="color:white;text-align:center">CHI TIẾT HÓA ĐƠN</h3>
+        @if (order != null)
+        {
+            <div class="row">
+                <div class="col">
+                    <p>
+                        <b style="color:white;font:3cm">Thông tin đơn hàng:</b>
+                    </p>
+                    <p style="color:white;font:3cm">Tên khách hàng: @order.CustomerName</p>
+                    <p style="color:white;font:3cm">Tên tài khoản: @order.AccountGameName</p>
+                    <p style="color:white;font:3cm">Mã tài khoản: @order.AccountGameId</p>
+                    <p style="color:white;font:3cm">Số điện thoại: @order.Phone</p>
+
+                    <br />
+                    <OrderSummaryComponent order="order" HidePlaceOrder="true"></OrderSummaryComponent>
+                </div>
+                
+                <div class="col">
+                    <p style="color:white;font:3cm">Thanh toán tại:</p>
+                    <MudImage Style="object-fit: fill;margin-left:20px;width:320px;height:320px"
+                          ObjectPosition="ObjectPosition.Center" Class="mx-auto my-auto"
+                          Src="https://f26-zpc.zdn.vn/1823616259192854458/6964a0f8bda26dfc34b3.jpg" />
+                </div>
+            </div>
+
+            <br />
+
+            
+
+            <br />
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="color:white;font:3cm">Tên sản phẩm</th>
+                        <th style="color:white;font:3cm">Số lượng</th>
+                        <th style="color:white;font:3cm">Giá</th>
+                    </tr>
+                </thead>
+                <tbody style="color:white;font:3cm">
+                    @foreach (var item in order.LineItems)
+                    {
+                        <tr>
+                            <td>@item.Product.Name</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Price.ToString("c",culture)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <p style="color:white;font-size:0.75cm"><b>Vui lòng thanh toán để hoàn tất giao dịch!</b></p>
+        }
+    </MudContainer>
+</div>
+@code {
+    private Order order;
+    [Parameter]
+    public string UniqueId { get; set; }
+    CultureInfo culture = new CultureInfo("vi-VN");
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        if (!string.IsNullOrWhiteSpace(UniqueId))
+        {
+            order = viewOrderConfirmationUseCase.Excute(UniqueId);
+        }
+    }
+}

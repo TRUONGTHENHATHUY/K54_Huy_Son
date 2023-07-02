@@ -1,0 +1,75 @@
+﻿@using System.Globalization;
+@inject NavigationManager navigationManager
+
+<div class="card m-2" style="width: 25rem;background-color:#4f4f4f;color:white;top:-8px">
+    <div class="card-body">
+        <h5 class="card-title">Tóm tắt đơn hàng</h5>
+        <div class="card-text d-flex justify-content-between">
+            <div>
+                Thành tiền (@itemsCount):
+            </div>
+            <div>
+                @itemsTotalPrice.ToString("c",culture)
+            </div>
+        </div>
+        <div class="card-text d-flex justify-content-between">
+            <div>
+                Thuế dự thu:
+            </div>
+            <div>
+                <text>@currency.ToString("c",culture)</text>
+            </div>
+        </div>
+        <div class="card-text d-flex justify-content-between">
+            <div>
+                Giảm giá:
+            </div>
+            <div>
+                <text>@currency.ToString("c",culture)</text>
+            </div>
+        </div>
+        <hr />
+        <div class="card-text d-flex justify-content-between" style="color:white">
+            <div>
+                <b>Tổng tiền:</b>
+            </div>
+            <div>
+                <b>@itemsTotalPrice.ToString("c",culture)</b>
+            </div>
+        </div>
+    </div>
+    @*<div class="col">
+            
+    </div>*@
+    
+</div>
+
+@if (!HidePlaceOrder)
+{
+    <MudButton Variant="Variant.Filled" Style="background-color:green;color:white;text-align:center;right:-160px;height:50px;width:250px" @onclick="PlaceOrder">Mua hàng</MudButton>
+}
+@code {
+    int itemsCount = 0;
+    double itemsTotalPrice = 0;
+    double currency = 0;
+    [Parameter]
+    public Order order { get; set; }
+    CultureInfo culture = new CultureInfo("vi-VN");
+    [Parameter]
+    public bool HidePlaceOrder { get; set; } = false;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        if(order != null)
+        {
+            itemsCount = order.LineItems.Count;
+            itemsTotalPrice = 0;
+            order.LineItems.ForEach(x => itemsTotalPrice += x.Price * x.Quantity);
+        }
+    }
+    private void PlaceOrder()
+    {
+        navigationManager.NavigateTo("/placeorder");
+    }
+}

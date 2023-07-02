@@ -1,0 +1,86 @@
+﻿@page "/updateproduct"
+@attribute [Authorize]
+@inject NavigationManager navigationManager
+
+<div style="background-color:#31313C;padding-top:0;background-image:url(https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg)">
+    <MudContainer Style="height:738px;width:1200px;">
+        <br />
+        <h3 style="color:white;text-align:center">Quản lý sản phẩm</h3>
+        <br />
+        <MudFab Href="productrequire" Color="Color.Tertiary" StartIcon="@Icons.Material.Filled.ArrowBack" DisableElevation="true" Label="Trở về" />
+        <br />
+            <h4 style="color:white;text-align:center">Sửa sản phẩm</h4>
+            @if (product != null)
+            {
+                <div class="row">
+                    <div class="col" style="color:white">
+                        <EditForm Model="product" OnValidSubmit="UpdateHandleValidSubmit" class="form-line">
+
+
+                            <div class="form-group">
+                                <label for="id">Id</label>
+                                <InputNumber id="id" @bind-Value="product.ProductId" class="form-control" style="color:white;background-color:#31313C"></InputNumber>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <InputText id="name" @bind-Value="product.Name" class="form-control" style="color:white;background-color:#31313C"></InputText>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <InputNumber id="price" @bind-Value="product.Price" class="form-control" style="color:white;background-color:#31313C"></InputNumber>
+                            </div>
+                            <div class="form-group">
+                                <label for="imagelink">Image Link</label>
+                                <InputText id="imagelink" @bind-Value="product.ImageLink" class="form-control" style="color:white;background-color:#31313C"></InputText>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <InputText id="description" @bind-Value="product.Description" class="form-control" style="color:white;background-color:#31313C"></InputText>
+                            </div>
+                            <div class="form-group">
+                                <label for="rating">Rating</label>
+                                <InputNumber id="rating" @bind-Value="product.Rating" class="form-control" style="color:white;background-color:#31313C"></InputNumber>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <InputText id="date" @bind-Value="product.Date" class="form-control" style="color:white;background-color:#31313C"></InputText>
+                            </div>
+                            <div class="form-group">
+                                <label for="tier">Tier</label>
+                                <InputText id="tier" @bind-Value="product.Tier" class="form-control" style="color:white;background-color:#31313C"></InputText>
+                            </div>
+                            <br />
+                            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Style="background-color:green;color:white;
+                            text-align:center;right:-30px;width:200px;height:50px">Thực hiện</MudButton>
+
+                            <DataAnnotationsValidator></DataAnnotationsValidator>
+                            <ValidationSummary></ValidationSummary>
+                        </EditForm>
+                    </div>
+                </div>
+            }
+        
+        
+    </MudContainer>
+</div>
+
+
+@code {
+    private ProductRequire product;
+    private int changenum = 1;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        product = new ProductRequire();
+    }
+    
+    private void UpdateHandleValidSubmit()
+    {
+        navigationManager.NavigateTo($"/productupdate?Productid={product.ProductId}&Name={product.Name}&Price={product.Price}&ImageLink={product.ImageLink}&Description={product.Description}&Rating={product.Rating}&Date={product.Date}&Tier={product.Tier}"
+        , true);
+    }
+    
+
+}

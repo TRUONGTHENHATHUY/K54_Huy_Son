@@ -1,0 +1,60 @@
+﻿@inject NavigationManager navigationManager
+
+<div style="background-color:#31313C;padding-top:0;background-image:url(https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg)">
+    <br />
+    <br />
+    <br />
+
+    <MudContainer Style="height:682px;width:1200px">
+        <br />
+        <br />
+        <br />
+        @if (loginViewModel != null)
+        {
+            
+            <MudContainer Style="height:320px;width:850px;background-color:black;">
+                <MudGrid>
+                    <MudItem>
+                <EditForm Model="loginViewModel" OnValidSubmit="HandleValidSubmit" class="form-line" style="width:500px">
+                    <DataAnnotationsValidator></DataAnnotationsValidator>
+                    <ValidationSummary></ValidationSummary>
+                    <br/>
+                    <br/>
+                    <br/>
+                    
+                    <div class="form-group" style="position:center;color:white;text-align:left">
+                        <label for="name">ĐĂNG NHẬP BẰNG TÊN TÀI KHOẢN</label>
+                        <br/>
+                        <InputText id="name" @bind-Value="loginViewModel.UserName" class="form-control" style="background-color:#3D4450;height:50px;width:500px;color:white"></InputText>
+                    </div>
+                    <br />
+                    <div class="form-group" style="position:center;color:white;text-align:left">
+                        <label for="password">MẬT KHẨU</label>
+                        <br />
+                                <InputText id="password" @bind-Value="loginViewModel.Password" type="password" class="form-control" style="background-color:#3D4450;height:50px;width:500px;color:white"></InputText>
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-primary" style="width:300px;height:50px;background-color:#1A9fff;left:90px">Đăng nhập</button>
+                </EditForm>
+                    </MudItem>
+                    <MudItem>
+                        <br/>
+                        <img src="https://f27-zpc.zdn.vn/5418333386484945366/5862dfe80ab6dae883a7.jpg" Style="height:250px;width:250px" /></MudItem>
+                </MudGrid>
+            </MudContainer>
+        }
+    </MudContainer>
+</div>
+@code {
+    private LoginViewModel loginViewModel;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        loginViewModel = new LoginViewModel();
+    }
+    private void HandleValidSubmit()
+    {
+        navigationManager.NavigateTo($"/authenticate?user={loginViewModel.UserName}&pwd={loginViewModel.Password}", true);
+    }
+}

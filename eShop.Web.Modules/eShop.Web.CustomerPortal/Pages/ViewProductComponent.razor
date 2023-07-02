@@ -1,0 +1,78 @@
+﻿@page "/product/{id:int}"
+@using System.Globalization;
+
+@inject NavigationManager navigationManager
+
+@inject IViewProductUseCase viewProduct
+@inject IAddProductToCartUseCase addProductTocartUseCase
+<div style="background-color:#31313C;padding-top:35px;background-image:url(https://f3-zpc.zdn.vn/7702595158995916532/a386260eaf577f092646.jpg)">
+    <MudContainer Style="height:703px;width:948px;background-color:#31313c;color:white">
+        <br />
+        <br />
+        <br />
+        <br />
+        <MudFab Href="products" Color="Color.Tertiary" StartIcon="@Icons.Material.Filled.ArrowBack" DisableElevation="true" Label="Trở về cửa hàng" />
+        
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 474px;background-color:#31313c">
+                    <div class="card-body">
+                        <img src="@product.ImageLink" />
+                        <hr />
+                        <p class="card-text">@product.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <br/>
+                <h1 class="card-title">@product.Name</h1>
+
+                <p style="font-size:0.75cm">
+                    Price: <label style="color:greenyellow">@product.Price.ToString("c",culture)</label>
+                </p>
+                <br/>
+                @*<button class="btn btn-primary" @onclick="AddToCart">Add To Cart</button>*@
+                <MudButton Variant="Variant.Filled" Style="background-color:white;color:black;text-align:center;height:40px;width:400px" 
+                @onclick="AddToCart">Thêm vào giỏ hàng</MudButton>
+                <br/>
+                <br />
+                <MudButton Variant="Variant.Filled" Style="background-color:green;color:white;text-align:center;height:40px;width:400px"
+                           @onclick="BuyNow">Mua ngay</MudButton>
+            </div>
+        </div>
+
+
+        @*<h6 class="card-subtitle mb-2 text-muted">@product.Brand</h6>*@
+
+
+        
+    </MudContainer>
+</div>
+@code {
+    private Product product;
+
+    [Parameter]
+    public int Id { get; set; }
+    CultureInfo culture = new CultureInfo("vi-VN");
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        if (Id > 0)
+            product = viewProduct.Execute(Id);
+    }
+
+    private void AddToCart()
+    {
+        addProductTocartUseCase.Execute(product.ProductId);
+        navigationManager.NavigateTo("/products");
+    }
+    private void BuyNow()
+    {
+        addProductTocartUseCase.Execute(product.ProductId);
+        navigationManager.NavigateTo("/cart");
+    }
+}

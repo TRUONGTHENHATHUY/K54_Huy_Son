@@ -1,0 +1,21 @@
+﻿@using System.Globalization;
+
+<div class="card m-2 p-2" style="height: 450px; width: 470px; background-color:#31313c">
+
+    <img src="@product.ImageLink" class="card-img-top-mid" alt="" Style="height:215px;width:460px;" />
+    <div class="card-body">
+        <h5 class="card-title" style="color:white"><NavLink Href=@($"product/{product.ProductId}")>@product.Name</NavLink></h5>
+        <p class="card-text" style="color:white;text-align:justify">@product.Price.ToString("c",culture)</p>
+        <p class="card-text" style="color:white;text-align:justify">@product.Description</p>
+        </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public Product product{ get; set; }
+
+    CultureInfo culture = new CultureInfo("vi-VN");
+    
+
+}
